@@ -1,4 +1,19 @@
 Launched::Application.routes.draw do
+  resources :portfolios
+
+
+  resources :props
+
+
+  resources :projects
+
+
+  resources :comments
+
+
+  resources :users
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
