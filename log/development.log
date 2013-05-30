@@ -394,3 +394,213 @@ Served asset /jquery_ujs.js - 200 OK (3ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-29 17:53:26 -0400
 Served asset /application.js - 304 Not Modified (41ms)
+Connecting to database specified by database.yml
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20130529214914)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (4.4ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying(255), "password" character varying(255), "email" character varying(255), "first_name" character varying(255), "last_name" character varying(255), "is_admin" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130529214914')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20130529215012)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "first_name" character varying(255), "last_name" character varying(255), "email" character varying(255), "body" character varying(255), "user_id" integer, "project_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130529215012')
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateProjects (20130529215024)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "projects" ("id" serial primary key, "name" character varying(255), "url" character varying(255), "code_base_url" character varying(255), "description" text, "contact_email" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130529215024')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateProps (20130529215037)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "props" ("id" serial primary key, "user_id" integer, "project_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130529215037')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePortfolios (20130529215054)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "portfolios" ("id" serial primary key, "user_id" integer, "project_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130529215054')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (116.0ms)[0m  DROP DATABASE IF EXISTS "launched_test"
+  [1m[36m (248.3ms)[0m  [1mCREATE DATABASE "launched_test" ENCODING = 'unicode'[0m
+  [1m[35m (7.4ms)[0m  CREATE TABLE "comments" ("id" serial primary key, "first_name" character varying(255), "last_name" character varying(255), "email" character varying(255), "body" character varying(255), "user_id" integer, "project_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "portfolios" ("id" serial primary key, "user_id" integer, "project_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "projects" ("id" serial primary key, "name" character varying(255), "url" character varying(255), "code_base_url" character varying(255), "description" text, "contact_email" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "props" ("id" serial primary key, "user_id" integer, "project_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.3ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying(255), "password" character varying(255), "email" character varying(255), "first_name" character varying(255), "last_name" character varying(255), "is_admin" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130529215054')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130529214914')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130529215012')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130529215024')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130529215037')
+Connecting to database specified by database.yml
+  [1m[36m (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (114.2ms)[0m  DROP DATABASE IF EXISTS "launched_test"
+  [1m[36m (228.1ms)[0m  [1mCREATE DATABASE "launched_test" ENCODING = 'unicode'[0m
+  [1m[35m (6.2ms)[0m  CREATE TABLE "comments" ("id" serial primary key, "first_name" character varying(255), "last_name" character varying(255), "email" character varying(255), "body" character varying(255), "user_id" integer, "project_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "portfolios" ("id" serial primary key, "user_id" integer, "project_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "projects" ("id" serial primary key, "name" character varying(255), "url" character varying(255), "code_base_url" character varying(255), "description" text, "contact_email" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "props" ("id" serial primary key, "user_id" integer, "project_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying(255), "password" character varying(255), "email" character varying(255), "first_name" character varying(255), "last_name" character varying(255), "is_admin" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130529215054')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130529214914')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130529215012')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130529215024')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130529215037')
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-05-30 16:42:04 -0400
+Served asset /rails.png - 304 Not Modified (1ms)
+
+
+Started GET "/comments" for 127.0.0.1 at 2013-05-30 16:42:12 -0400
+Processing by CommentsController#index as HTML
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" [0m
+  Rendered comments/index.html.erb within layouts/application (2.1ms)
+Compiled jquery.js  (1ms)  (pid 2954)
+Compiled jquery_ujs.js  (0ms)  (pid 2954)
+Compiled application.js  (50ms)  (pid 2954)
+Completed 200 OK in 187ms (Views: 144.6ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2013-05-30 16:42:12 -0400
+Served asset /comments.css - 200 OK (1ms)
+
+
+Started GET "/assets/portfolios.css?body=1" for 127.0.0.1 at 2013-05-30 16:42:12 -0400
+Served asset /portfolios.css - 200 OK (1ms)
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-05-30 16:42:12 -0400
+Served asset /projects.css - 200 OK (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-30 16:42:12 -0400
+Served asset /application.css - 304 Not Modified (31ms)
+
+
+Started GET "/assets/props.css?body=1" for 127.0.0.1 at 2013-05-30 16:42:12 -0400
+Served asset /props.css - 200 OK (1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-05-30 16:42:12 -0400
+Served asset /users.css - 200 OK (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-05-30 16:42:12 -0400
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2013-05-30 16:42:12 -0400
+Served asset /comments.js - 200 OK (1ms)
+
+
+Started GET "/assets/portfolios.js?body=1" for 127.0.0.1 at 2013-05-30 16:42:12 -0400
+Served asset /portfolios.js - 200 OK (1ms)
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-05-30 16:42:12 -0400
+Served asset /projects.js - 200 OK (1ms)
+
+
+Started GET "/assets/props.js?body=1" for 127.0.0.1 at 2013-05-30 16:42:12 -0400
+Served asset /props.js - 200 OK (1ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-05-30 16:42:12 -0400
+Served asset /users.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-30 16:42:12 -0400
+Served asset /jquery.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-30 16:42:12 -0400
+Served asset /jquery_ujs.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-30 16:42:12 -0400
+Served asset /application.js - 304 Not Modified (10ms)
+
+
+Started GET "/comments/new" for 127.0.0.1 at 2013-05-30 16:42:18 -0400
+Processing by CommentsController#new as HTML
+  Rendered comments/_form.html.erb (7.0ms)
+  Rendered comments/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 86ms (Views: 79.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-05-30 16:42:18 -0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-30 16:42:18 -0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-30 16:42:18 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2013-05-30 16:42:19 -0400
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Uk/WYAJArl2qrW5j8SmSv6V9kwtOQozk/+XnMzxqGLM=", "comment"=>{"first_name"=>"", "last_name"=>"", "email"=>"", "body"=>"", "user_id"=>"", "project_id"=>""}, "commit"=>"Create Comment"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (5.5ms)[0m  [1mINSERT INTO "comments" ("body", "created_at", "email", "first_name", "last_name", "project_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["body", ""], ["created_at", Thu, 30 May 2013 20:42:19 UTC +00:00], ["email", ""], ["first_name", ""], ["last_name", ""], ["project_id", nil], ["updated_at", Thu, 30 May 2013 20:42:19 UTC +00:00], ["user_id", nil]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/comments/1
+Completed 302 Found in 9ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/comments/1" for 127.0.0.1 at 2013-05-30 16:42:19 -0400
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered comments/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 69ms (Views: 66.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-30 16:42:19 -0400
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-05-30 16:42:19 -0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-30 16:42:19 -0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-05-30 16:42:46 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" 
+  Rendered users/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 70ms (Views: 66.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-05-30 16:42:46 -0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-30 16:42:46 -0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-30 16:42:46 -0400
+Served asset /application.css - 304 Not Modified (0ms)
