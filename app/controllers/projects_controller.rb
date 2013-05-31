@@ -3,7 +3,6 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }
@@ -13,11 +12,12 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @project = Project.find(params[:id])
+    match_projects = Project.where(:id => params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @project }
+    if match_projects.empty? 
+      redirect_to projects_path, notice: 'Application Not Found'
+    else
+      @project = match_projects.first
     end
   end
 
