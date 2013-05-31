@@ -2,11 +2,9 @@ require 'spec_helper'
 
 describe "Project Submissions" do
 
-  let(:valid_project) { Project.new( { name: "Breakable Toy", url: "www.google.com",
-                                       code_base_url: "www.github.com", description: "Yay, Beautiful App!" } ) }
+  let(:valid_project) { Project.new({ name: "Breakable Toy", url: "www.google.com", code_base_url: "www.github.com", description: "Yay, Beautiful App!" })}
 
   # Must specify proj name, url, codebase url and a description
-
   it 'valid submission must have a project name, url, codebase url and description' do
     prev_count = Project.count
     visit '/projects/new'
@@ -30,7 +28,6 @@ describe "Project Submissions" do
   end
 
   # Must specify valid url and valid code base url
-
   it "does not submit if url or code base url format are not valid" do
     prev_count = Project.count
     visit '/projects/new'
@@ -56,7 +53,6 @@ describe "Project Submissions" do
   end
 
   # if opt contact email specified, should validate is valid email
-
   it "does not submit if the contact email is not a valid email address" do
     prev_count = Project.count
     visit '/projects/new'
@@ -69,13 +65,3 @@ describe "Project Submissions" do
     page.should have_content("1 error")
   end
 end
-
-
-
-
-
-
-
-
-
-

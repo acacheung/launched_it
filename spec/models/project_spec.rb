@@ -38,6 +38,4 @@ describe Project do
     project.contact_email = "blah"
     expect(project).to_not be_valid
   end
-
-
 end

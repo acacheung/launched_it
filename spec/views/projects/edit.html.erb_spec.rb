@@ -20,7 +20,7 @@ describe "projects/edit" do
       assert_select "input#project_url[name=?]", "project[url]"
       assert_select "input#project_code_base_url[name=?]", "project[code_base_url]"
       assert_select "textarea#project_description[name=?]", "project[description]"
-      assert_select "textarea#project_contact_email[name=?]", "project[contact_email]"
+      assert_select "input#project_contact_email[name=?]", "project[contact_email]"
     end
   end
 end
