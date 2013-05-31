@@ -24,8 +24,20 @@ describe Project do
     expect(project).to_not be_valid
   end
 
-  it 'will not submit if email is not valid' do
-    project.description = "blah"
+  it "will not submit if the url format is no valid" do
+    project.url = "google"
     expect(project).to_not be_valid
   end
+
+  it "will not submit if the code base url format is no valid" do
+    project.code_base_url = "google"
+    expect(project).to_not be_valid
+  end
+
+  it 'will not submit if email is not a valid email address' do
+    project.contact_email = "blah"
+    expect(project).to_not be_valid
+  end
+
+
 end
