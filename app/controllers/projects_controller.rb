@@ -14,11 +14,14 @@ class ProjectsController < ApplicationController
   def show
     match_projects = Project.where(:id => params[:id])
 
-    if match_projects.empty? 
+    if match_projects.empty?
       redirect_to projects_path, notice: 'Application Not Found'
     else
       @project = match_projects.first
     end
+
+    @comment = Comment.new(params[:comment])
+    @comments = Comment.where(:project_id => params[:id])
   end
 
   # GET /projects/new

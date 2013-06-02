@@ -25,6 +25,8 @@
   <%= @project.contact_email %>
 </p>
 
-
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+
+<%= render 'application/comment_form' %>
+<%= render 'application/comment_index' %>

@@ -31,10 +31,9 @@
     <%= f.label :user_id %><br />
     <%= f.number_field :user_id %>
   </div>
-  <div class="field">
-    <%= f.label :project_id %><br />
-    <%= f.number_field :project_id %>
-  </div>
+  <div><%= f.hidden_field :project_id, :value => (params[:id]) %></div>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
