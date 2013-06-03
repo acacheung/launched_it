@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  # GET /comments
+  # GET /p-/comments
   # GET /comments.json
   def index
     @comments = Comment.all
@@ -43,11 +43,16 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @comment.project, notice: 'Comment was successfully created.' }
         format.json { render json: @comment, status: :created, location: @comment }
       else
         # format.html { redirect_to "/projects/#{params["comment"]["project_id"]}" }
-        format.html { render action: "new" }
+        # format.html { render "projects/show", project: @comment.project  }
+        format.html do
+          @project = @comment.project
+          @comments = @project.comments
+          render "projects/show"
+        end
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end

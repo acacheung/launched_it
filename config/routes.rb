@@ -4,12 +4,9 @@ Launched::Application.routes.draw do
 
   resources :props
 
-
   resources :projects
-
-
+    
   resources :comments
-
 
   resources :users
 
@@ -42,8 +39,8 @@ Launched::Application.routes.draw do
 
   # Sample resource route with sub-resources:
   #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
+      # resources :comments#, :sales
+       # resource :seller
   #   end
 
   # Sample resource route with more complex sub-resources
