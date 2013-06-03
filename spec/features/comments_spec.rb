@@ -15,7 +15,7 @@ describe "Comments" do
       fill_in 'Email', :with => ''
       fill_in 'Body', :with => ''
       fill_in 'User', :with => ''
-      fill_in 'Project', :with => ''
+      # fill_in 'Project', :with => ''
       click_button 'Create Comment'
       page.should have_content("can't be blank")
     end
@@ -32,7 +32,7 @@ describe "Comments" do
       fill_in 'Email', :with => 'launch@academy.com'
       fill_in 'Body', :with => 'Yea that is beautiful'
       fill_in 'User', :with => '1'
-      fill_in 'Project', :with => '1'
+      # fill_in 'Project', :with => '1'
       click_button 'Create Comment'
       page.should have_content("Yea that is beautiful")
     end
@@ -49,7 +49,7 @@ describe "Comments" do
       fill_in 'Email', :with => 'launch@academy.com'
       fill_in 'Body', :with => 'Yea that is beautiful'
       fill_in 'User', :with => '1'
-      fill_in 'Project', :with => '1'
+      # fill_in 'Project', :with => '1'
       click_button 'Create Comment'
       page.should have_content('Yea that is beautiful')
       page.should have_content('Breakable Toy')
