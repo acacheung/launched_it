@@ -6,6 +6,8 @@ class CommentValidations < ActiveRecord::Migration
     change_column :comments, :body, :text, :null => false
     change_column :comments, :user_id, :integer, :null => false
     change_column :comments, :project_id, :integer, :null => false
+
+    
   end
 
   def down
